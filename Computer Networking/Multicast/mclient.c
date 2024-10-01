@@ -15,7 +15,7 @@ int main() {
     int clientSocket;
     struct sockaddr_in serverAddr;
     char buffer[BUF_SIZE];
-    const char *message = "Hello from client!";
+    const char *message = "Hello from client - 1";
 
     // Create the socket
     clientSocket = socket(PF_INET, SOCK_DGRAM, 0);
@@ -37,7 +37,7 @@ int main() {
                    (struct sockaddr*)&serverAddr, sizeof(serverAddr)) < 0) {
             perror("Send failed");
         } else {
-            printf("Message sent to server: %s\n", message);
+            printf("From client 1 Message sent to server: %s\n", message);
         }
 
         // Wait for a response from the server
