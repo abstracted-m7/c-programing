@@ -1,0 +1,79 @@
+7: Sliding window program
+
+--------------------------------
+Code:
+--------------------------------
+
+#include <stdio.h>
+#include <stdlib.h>
+
+// Function to implement Sliding Window Protocol
+void slidingWindow(int totalFrames, int windowSize) {
+    int i = 0;
+
+    printf("Sending frames using Sliding Window Protocol:\n");
+    while (i < totalFrames) {
+        printf("\nSending frames: ");
+
+        // Send frames within the window
+        for (int j = 0; j < windowSize && (i + j) < totalFrames; j++) {
+            printf("Frame %d ", i + j + 1);
+        }
+
+        printf("\nAcknowledging frames: ");
+
+        // Acknowledge frames within the window
+        for (int j = 0; j < windowSize && i < totalFrames; j++) {
+            printf("Frame %d ", i + 1);
+            i++;
+        }
+
+        printf("\n");
+    }
+}
+
+int main() {
+    int totalFrames, windowSize;
+
+    // Get total frames and window size from the user
+    printf("Enter the total number of frames: ");
+    scanf("%d", &totalFrames);
+
+    printf("Enter the window size: ");
+    scanf("%d", &windowSize);
+
+    // Validate inputs
+    if (totalFrames <= 0 || windowSize <= 0) {
+        printf("Invalid input! Total frames and window size must be positive integers.\n");
+        return 1;
+    }
+
+    // Call sliding window function
+    slidingWindow(totalFrames, windowSize);
+
+    return 0;
+}
+
+
+
+----------------------------------
+User Input:
+----------------------------------
+Enter the total number of frames: 8
+Enter the window size: 3
+
+----------------------------------
+Output:
+----------------------------------
+Sending frames using Sliding Window Protocol:
+
+Sending frames: Frame 1 Frame 2 Frame 3 
+Acknowledging frames: Frame 1 Frame 2 Frame 3 
+
+Sending frames: Frame 4 Frame 5 Frame 6 
+Acknowledging frames: Frame 4 Frame 5 Frame 6 
+
+Sending frames: Frame 7 Frame 8 
+Acknowledging frames: Frame 7 Frame 8 
+
+

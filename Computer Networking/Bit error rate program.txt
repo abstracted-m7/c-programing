@@ -1,0 +1,97 @@
+6. Bit error rate program
+
+---------------------------------
+Code:
+---------------------------------
+
+#include <stdio.h>
+#include <stdlib.h>
+
+// Function to calculate the Bit Error Rate (BER)
+void calculateBER(int transmitted[], int received[], int length) {
+    int errorCount = 0;
+
+    // Count the number of bit errors
+    for (int i = 0; i < length; i++) {
+        if (transmitted[i] != received[i]) {
+            errorCount++;
+        }
+    }
+
+    // Calculate BER
+    double ber = (double)errorCount / length;
+
+    // Print the results
+    printf("Total Bits: %d\n", length);
+    printf("Bit Errors: %d\n", errorCount);
+    printf("Bit Error Rate (BER): %.6f\n", ber);
+}
+
+int main() {
+    int length;
+
+    // Get the number of bits from the user
+    printf("Enter the number of bits: ");
+    scanf("%d", &length);
+
+    // Allocate memory for transmitted and received arrays
+    int *transmitted = (int *)malloc(length * sizeof(int));
+    int *received = (int *)malloc(length * sizeof(int));
+
+    if (transmitted == NULL || received == NULL) {
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+
+    // Get transmitted bits from the user
+    printf("Enter the transmitted bits (0 or 1):\n");
+    for (int i = 0; i < length; i++) {
+        scanf("%d", &transmitted[i]);
+    }
+
+    // Get received bits from the user
+    printf("Enter the received bits (0 or 1):\n");
+    for (int i = 0; i < length; i++) {
+        scanf("%d", &received[i]);
+    }
+
+    // Calculate and display BER
+    calculateBER(transmitted, received, length);
+
+    // Free allocated memory
+    free(transmitted);
+    free(received);
+
+    return 0;
+}
+
+
+---------------------------------
+User Input:
+---------------------------------
+
+Enter the number of bits: 8
+Enter the transmitted bits (0 or 1):
+1 0 1 1 0 1 0 1
+Enter the received bits (0 or 1):
+1 0 0 1 1 1 0 1
+
+
+---------------------------------
+Output :
+---------------------------------
+Total Bits: 8
+Bit Errors: 2
+Bit Error Rate (BER): 0.250000
+
+
+--------------------------------
+Explanation :
+--------------------------------
+    Number of bits: The user inputs 8.
+    Transmitted bits: The user inputs 1 0 1 1 0 1 0 1.
+    Received bits: The user inputs 1 0 0 1 1 1 0 1.
+    The program compares each bit from the transmitted and received arrays:
+        Differences are at positions 2 and 5 (0≠1, 0≠1).
+    Bit errors: 2.
+    BER: 2 / 8 = 0.25.

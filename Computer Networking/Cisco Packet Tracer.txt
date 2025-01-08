@@ -1,0 +1,84 @@
+8: Cisco Packet Tracer
+
+Questions : Write the steps using Cisco Packet Tracer, implement a wireless LAN to connect PCs across the three floors of the new building.
+
+--------------------------------
+Ans :
+--------------------------------
+
+Here’s a step-by-step guide to implementing a wireless LAN (WLAN) using Cisco Packet Tracer to connect PCs across the three floors of a building:
+Steps to Implement WLAN in Cisco Packet Tracer
+
+1. Open Cisco Packet Tracer
+
+    Launch Cisco Packet Tracer and create a new workspace.
+
+2. Layout the Building Floors
+
+    Use the workspace to visually represent three floors:
+        Use rectangles or labels to mark each floor for clarity.
+
+3. Place the Devices
+
+    Access Points:
+        Select Access Points (APs) from the Network Devices section.
+        Place one AP on each floor.
+    PCs:
+        Select PCs (End Devices) and place them on all three floors.
+
+4. Add a Wireless Router
+
+    Select a Wireless Router from the Network Devices section and place it centrally to connect the Access Points.
+    Example: Use a device like Linksys Wireless Router.
+
+5. Configure Wireless Router
+
+    Click on the wireless router to open its configuration panel.
+    Go to the GUI tab:
+        Set SSID: Example: "Building_WLAN".
+        Security Settings:
+            Select WPA2-PSK.
+            Enter a secure password (e.g., "password123").
+        IP Configuration:
+            Enable DHCP to assign IP addresses automatically.
+    Save the configuration.
+
+6. Configure Access Points
+
+    Click on each access point to configure:
+        Assign the same SSID ("Building_WLAN") as the router.
+        Use the same security settings (WPA2-PSK, "password123").
+        Set the channel for each AP (e.g., AP1: Channel 1, AP2: Channel 6, AP3: Channel 11) to avoid interference.
+        Assign static IPs to each AP within the router’s network range.
+
+7. Connect Access Points to the Router
+
+    Use cables or wireless links:
+        If using cables, connect the router to the APs via Ethernet cables.
+        If using wireless links, ensure the SSID and settings match between the router and APs.
+
+8. Configure PCs
+
+    Click on each PC to open the configuration menu:
+        Go to the Desktop tab → PC Wireless or IP Configuration.
+        Connect to the SSID ("Building_WLAN").
+        Enter the WPA2-PSK password.
+        If DHCP is enabled, verify the PC receives an IP automatically.
+
+9. Test Connectivity
+
+    Use the Command Prompt on PCs:
+        Ping other PCs on the network.
+        Example: ping 192.168.0.2.
+    Test wireless roaming:
+        Move a PC to another floor and verify it connects seamlessly to the nearest AP.
+
+10. Save the Project
+
+    Save your work as a .pkt file for future reference.
+
+Additional Tips
+
+    Use Repeater Devices if needed to extend wireless range.
+    Configure QoS (Quality of Service) if there are video/audio applications to prioritize traffic.
+    Add network labels to ensure clarity in your design.
